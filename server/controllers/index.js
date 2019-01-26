@@ -1,5 +1,5 @@
 var models = require('../models');
-
+var express = require('express');//added
 module.exports = {
   messages: {
     get: function (req, res) {}, // a function which handles a get request for all messages
@@ -13,3 +13,4 @@ module.exports = {
   }
 };
 
+//defines msg and users controllers that the app will use 

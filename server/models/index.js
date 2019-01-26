@@ -13,3 +13,4 @@ module.exports = {
   }
 };
 
+//defines msg n users the models 

@@ -5,3 +5,4 @@ var mysql = require('mysql');
 // and to the database "chat".
 
 
+//uses mysql npm modules to connect to database server
