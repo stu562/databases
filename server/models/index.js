@@ -13,7 +13,7 @@ module.exports = {
       //SELECT * FROM Messages
     }, // a function which produces all the messages
     post: function (newMessage, callback) {
-      db.query('INSERT INTO Messages set ?', newMessage, function(err, results) {
+      db.query(`INSERT INTO Messages (roomname, username, message) values ('${newMessage.roomname}', '${newMessage.username}', '${newMessage.message}')`, function(err, results) {
         if (err) {
           callback(err);
         } else {
@@ -27,10 +27,11 @@ module.exports = {
   users: {
     // Ditto as above.
     get: function (callback) {
-      db.query('SELECT * FROM Users', function(err, results) {
+      db.query('SELECT * FROM Users WHERE id = ?', [req.params.id], function(err, results) {
         if (err) {
           callback(err);
         } else {
+
           callback(null, results);
         }
       })
@@ -38,7 +39,7 @@ module.exports = {
     post: function (newUser, callback) {
       db.query('INSERT INTO Users set ?', newUser, function(err, results) {
         if (err) {
-          callback(err);
+          callback(err); 
         } else {
           callback(null, results);
         }

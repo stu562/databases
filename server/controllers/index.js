@@ -21,10 +21,11 @@ module.exports = {
     post: function (req, res) {
       models.messages.post(req.body, function(err, result) {
         if (err) {
-          console.log(err, 'message error');
+          // console.log(err, 'message error');
           res.send(err);
         } else {
-          console.log(req.body);
+          // console.log(result, 'post messages');
+          // res.json(req.body);
           res.status(201).send('Success!')
         }
       })
@@ -38,7 +39,7 @@ module.exports = {
     // Ditto as above
     get: function (req, res) {
       if (!req.body.username || !req.status) {
-        res.status(400).send('No user available')
+        res.status(400).send('No users available')
       } else {
         models.users.get(function(err, result) {
           if (err) {
@@ -52,9 +53,8 @@ module.exports = {
       }
     },
     post: function (req, res) {
-      models.users.post(req.body.username, function(err, result) {
+      models.users.post(req.body, function(err, result) {
         if (err) {
-          console.log(err, 'user error');
           res.send(err);
         } else {
           // console.log(req.body.username);

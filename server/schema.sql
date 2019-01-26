@@ -26,7 +26,9 @@ DROP TABLE IF EXISTS Messages;
 CREATE TABLE Messages (
   /* Describe your table here.*/
   id int(11) not null auto_increment,
-  text VARCHAR(255),
+  username VARCHAR(50),
+  message VARCHAR(255),
+  roomname VARCHAR(50),
   -- foreign key 
   user_id int(11), 
   room_id int(11), 
